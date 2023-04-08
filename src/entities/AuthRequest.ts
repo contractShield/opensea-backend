@@ -1,4 +1,3 @@
-import { PROPERTY_DEPS_METADATA } from "@nestjs/common/constants";
 import { Column, Entity, PrimaryGeneratedColumn } from "typeorm";
 
 @Entity()
@@ -9,7 +8,7 @@ export class AuthRequest {
     @Column({ length: 40 })
     address: string;
 
-    @Column({ length: 40 })
+    @Column({ length: 36 })
     nonce: string;
 
     @Column({ default: false })
@@ -17,4 +16,5 @@ export class AuthRequest {
 
     @Column()
     expiredAt: Date;
+    uuid: any;
 }
