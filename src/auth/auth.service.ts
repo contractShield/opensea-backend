@@ -15,13 +15,13 @@ export class AuthService {
         const authRequest = new AuthRequest();
 
         authRequest.address = address;
-        authRequest.uuid = v4();
+        authRequest.nonce = v4();
         authRequest.expiredAt = new Date(new Date().getTime() + 10 * 60 * 1000);
 
         return await this.AuthRequestRepository.save(authRequest);
     }
 
-    generateSignatureMessage(authRequest: AuthRequest) {
-        return 'Welcome to Opensea Clone Coding!\n\nWallet Address:\n${authRequest.address}\n\nnonce:${authRequest.nonce}';
+    generateSignatureMessage(authRequest: AuthRequest){
+        return `Welcome to Opensea Clone Coding!\n\nWallet Address:${authRequest.address}\n\nNonce:${authRequest.nonce}`;
     }
 }
